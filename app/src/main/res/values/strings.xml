@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">WakeMeThere</string>
+
+    <!-- Onboarding Navigation -->
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- Slide 1: Fine Location -->
+    <string name="title_fine_location">Location Permission</string>
+    <string name="desc_fine_location">WakeMeThere uses precise location access to track your real-time location and sound an alarm when you arrive at your destination.</string>
+
+    <!-- Slide 2: Background Location -->
+    <string name="title_background_location">Background Location</string>
+    <string name="desc_background_location">Background location permission is needed so WakeMeThere can trigger location alarms even when the app is minimized or closed.</string>
+
+    <!-- Slide 3: Notifications -->
+    <string name="title_notifications">Notification Access</string>
+    <string name="desc_notifications">Enable notifications so WakeMeThere can alert you with sound, vibration, and banner notifications when you reach your alarm destination.</string>
+
+    <!-- Permission Status & Actions -->
+    <string name="status_granted">Permission Granted ✓</string>
+    <string name="status_required">Permission Required</string>
+    <string name="btn_allow_permission">Grant Permission</string>
+    <string name="btn_permission_granted">Granted</string>
+</resources>
