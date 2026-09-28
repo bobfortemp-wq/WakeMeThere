@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+  <!-- Outer Orbit Circle -->
+  <path
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1"
+      android:pathData="M 100,20 A 80,80 0 1,0 100,180 A 80,80 0 1,0 100,20 Z" />
+
+  <!-- Orbiting Sand Accent Dot -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M 156,44 A 4,4 0 1,0 156,52 A 4,4 0 1,0 156,44 Z" />
+
+  <!-- Middle Orbit Circle -->
+  <path
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1"
+      android:pathData="M 100,45 A 55,55 0 1,0 100,155 A 55,55 0 1,0 100,45 Z" />
+
+  <!-- Inner Orbit Circle -->
+  <path
+      android:strokeColor="#3A465E"
+      android:strokeWidth="1"
+      android:pathData="M 100,68 A 32,32 0 1,0 100,132 A 32,32 0 1,0 100,68 Z" />
+
+  <!-- Center Box Container -->
+  <path
+      android:fillColor="#161B26"
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1.5"
+      android:pathData="M 80,80 L 120,80 A 12,12 0 0,1 132,92 L 132,108 A 12,12 0 0,1 120,120 L 80,120 A 12,12 0 0,1 68,108 L 68,92 A 12,12 0 0,1 80,80 Z" />
+
+  <!-- Moon Icon inside box -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M102,91a6,6 0,0 0,-1.14 0.1,1 1 0,0 0,0.18 1.2,5 5 0,0 1,4.22 4.22,1 1 0,0 0,1.2 0.18A6,6 0,0 0,102 91zM97,95a1,1 0,0 0,-0.2 0.8,5 5 0,1 0,5.4 5.4,1 1 0,0 0,-0.2 -0.8,1 1 0,0 0,-0.8 -0.2,6 6 0,1 1,-6.9 -6.9,1 1 0,0 0,-0.2 0.8z"/>
+</vector>

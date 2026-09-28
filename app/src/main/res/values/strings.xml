@@ -1,26 +1,53 @@
 <resources>
     <string name="app_name">WakeMeThere</string>
 
-    <!-- Onboarding Navigation -->
+    <!-- Top Bar Controls -->
     <string name="skip">Skip</string>
-    <string name="next">Next</string>
-    <string name="get_started">Get Started</string>
+    <string name="top_chip_slide2">ACCESS_BACKGROUND_LOCATION</string>
+    <string name="top_chip_slide3">POST_NOTIFICATIONS • DND</string>
 
-    <!-- Slide 1: Fine Location -->
-    <string name="title_fine_location">Location Permission</string>
-    <string name="desc_fine_location">WakeMeThere uses precise location access to track your real-time location and sound an alarm when you arrive at your destination.</string>
+    <!-- Slide 1 -->
+    <string name="step01_tag">STEP 01 • SYSTEM BASELINE</string>
+    <string name="title_slide1">Rest Soundly. Arrive Right.</string>
+    <string name="desc_slide1">Intelligent geofenced transit telemetry wake-ups. Never miss your interchange while catching deep sleep on trains or buses.</string>
 
-    <!-- Slide 2: Background Location -->
-    <string name="title_background_location">Background Location</string>
-    <string name="desc_background_location">Background location permission is needed so WakeMeThere can trigger location alarms even when the app is minimized or closed.</string>
+    <string name="card1_slide1_title">Adaptive Geofence Perimeter</string>
+    <string name="card1_slide1_sub">Expands alert buffer if transit exceeds 50 km/h.</string>
+    <string name="card1_slide1_badge">AUTO-SCALE</string>
 
-    <!-- Slide 3: Notifications -->
-    <string name="title_notifications">Notification Access</string>
-    <string name="desc_notifications">Enable notifications so WakeMeThere can alert you with sound, vibration, and banner notifications when you reach your alarm destination.</string>
+    <string name="card2_slide1_title">Zero Cloud Storage</string>
+    <string name="card2_slide1_sub">Location processed entirely on device silicon.</string>
+    <string name="card2_slide1_badge">100% PRIVATE</string>
 
-    <!-- Permission Status & Actions -->
-    <string name="status_granted">Permission Granted ✓</string>
-    <string name="status_required">Permission Required</string>
-    <string name="btn_allow_permission">Grant Permission</string>
-    <string name="btn_permission_granted">Granted</string>
+    <string name="btn_slide1">Continue →</string>
+
+    <!-- Slide 2 -->
+    <string name="step02_tag">STEP 02 • SLEEP GUARDING</string>
+    <string name="title_slide2">Background Tracking</string>
+    <string name="desc_slide2">Phones stay dark in coat pockets or backpacks during morning commutes. Allow background location so our geofence calculator wakes you on approach.</string>
+
+    <string name="card1_slide2_title">Always Allow Access</string>
+    <string name="card1_slide2_sub">Select "Allow all the time" in OS prompt</string>
+
+    <string name="card2_slide2_title">Battery drain footprint</string>
+    <string name="card2_slide2_val">&lt; 1.5% / hour</string>
+
+    <string name="btn_slide2">Enable Background Guard →</string>
+
+    <!-- Slide 3 -->
+    <string name="step03_tag">STEP 03 • CRITICAL PING</string>
+    <string name="title_slide3">Arrival Alarms &amp; Haptics</string>
+    <string name="desc_slide3">Overrides silent switches and Do-Not-Disturb when your train enters the final 300m Wake Zone perimeter.</string>
+
+    <string name="card1_slide3_title">Bypass Do Not Disturb</string>
+    <string name="card1_slide3_sub">Emergency arrival acoustic burst</string>
+
+    <string name="card2_slide3_title">Zero spam &amp; promo guarantee</string>
+    <string name="card2_slide3_badge">VERIFIED</string>
+
+    <string name="btn_slide3">Finish &amp; Guard First Stop →</string>
+
+    <!-- Home Fragment -->
+    <string name="welcome_title">Welcome to WakeMeThere!</string>
+    <string name="welcome_subtitle">Onboarding complete. Geofence transit guard active.</string>
 </resources>

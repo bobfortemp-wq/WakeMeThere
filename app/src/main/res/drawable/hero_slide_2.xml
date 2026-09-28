@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+  <!-- Outer Orbit Circle -->
+  <path
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1"
+      android:pathData="M 100,20 A 80,80 0 1,0 100,180 A 80,80 0 1,0 100,20 Z" />
+
+  <!-- Orbiting Sand Accent Dot -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M 152,40 A 3.5,3.5 0 1,0 152,47 A 3.5,3.5 0 1,0 152,40 Z" />
+
+  <!-- Middle Orbit Circle -->
+  <path
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1"
+      android:pathData="M 100,45 A 55,55 0 1,0 100,155 A 55,55 0 1,0 100,45 Z" />
+
+  <!-- Center Phone Frame -->
+  <path
+      android:fillColor="#161B26"
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1.5"
+      android:pathData="M 78,65 L 122,65 A 10,10 0 0,1 132,75 L 132,125 A 10,10 0 0,1 122,135 L 78,135 A 10,10 0 0,1 68,125 L 68,75 A 10,10 0 0,1 78,65 Z" />
+
+  <!-- Phone Speaker / Notch -->
+  <path
+      android:fillColor="#252D3D"
+      android:pathData="M 92,70 L 108,70 A 1.5,1.5 0 0,1 108,73 L 92,73 A 1.5,1.5 0 0,1 92,70 Z" />
+
+  <!-- Lock Icon -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M100,84a4,4 0,0 0,-4 4v3h-1a1,1 0,0 0,-1 1v7a1,1 0,0 0,1 1h10a1,1 0,0 0,1 -1v-7a1,1 0,0 0,-1 -1h-1v-3a4,4 0,0 0,-4 -4zm-2,4a2,2 0,1 1,4 0v3h-4v-3z"/>
+
+  <!-- "GUARD ACTIVE" Pill Box inside Phone Frame -->
+  <path
+      android:fillColor="#1C2230"
+      android:strokeColor="@color/sand_accent"
+      android:strokeWidth="1"
+      android:pathData="M 76,112 L 124,112 A 4,4 0 0,1 128,116 L 128,122 A 4,4 0 0,1 124,126 L 76,126 A 4,4 0 0,1 72,122 L 72,116 A 4,4 0 0,1 76,112 Z" />
+
+</vector>

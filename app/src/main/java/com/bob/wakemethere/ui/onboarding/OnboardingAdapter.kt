@@ -8,7 +8,7 @@ class OnboardingAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     private val permissionTypes = listOf(
         PermissionType.FINE_LOCATION,
         PermissionType.BACKGROUND_LOCATION,
-        PermissionType.POST_NOTIFICATIONS
+        PermissionType.POST_NOTIFICATIONS,
     )
 
     override fun getItemCount(): Int = permissionTypes.size

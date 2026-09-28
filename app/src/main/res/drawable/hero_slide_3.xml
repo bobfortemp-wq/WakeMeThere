@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+  <!-- Outer Orbit Circle -->
+  <path
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1"
+      android:pathData="M 100,20 A 80,80 0 1,0 100,180 A 80,80 0 1,0 100,20 Z" />
+
+  <!-- Orbiting Sand Accent Dot -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M 152,40 A 3.5,3.5 0 1,0 152,47 A 3.5,3.5 0 1,0 152,40 Z" />
+
+  <!-- Middle Orbit Circle -->
+  <path
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1"
+      android:pathData="M 100,45 A 55,55 0 1,0 100,155 A 55,55 0 1,0 100,45 Z" />
+
+  <!-- Inner Orbit Circle -->
+  <path
+      android:strokeColor="#3A465E"
+      android:strokeWidth="1"
+      android:pathData="M 100,68 A 32,32 0 1,0 100,132 A 32,32 0 1,0 100,68 Z" />
+
+  <!-- Center Box Container -->
+  <path
+      android:fillColor="#161B26"
+      android:strokeColor="#252D3D"
+      android:strokeWidth="1.5"
+      android:pathData="M 80,80 L 120,80 A 12,12 0 0,1 132,92 L 132,108 A 12,12 0 0,1 120,120 L 80,120 A 12,12 0 0,1 68,108 L 68,92 A 12,12 0 0,1 80,80 Z" />
+
+  <!-- Bell Icon inside box -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M100,111a1.5,1.5 0,0 0,1.5 -1.5h-3a1.5,1.5 0,0 0,1.5 1.5zm4.5,-4.5v-3.75c0,-2.3 -1.22,-4.23 -3.38,-4.74V97.5a1.12,1.12 0,0 0,-2.24 0v0.51C96.72,98.52 95.5,100.45 95.5,102.75v3.75l-1.5,1.5v0.75h12v-0.75l-1.5,-1.5z"/>
+
+  <!-- Haptic sound waves below bell -->
+  <path
+      android:fillColor="@color/sand_accent"
+      android:pathData="M 95,113 L 95,116 A 0.5,0.5 0 0,0 96,116 L 96,113 Z M 100,113 L 100,117 A 0.5,0.5 0 0,0 101,117 L 101,113 Z M 104,113 L 104,116 A 0.5,0.5 0 0,0 105,116 L 105,113 Z" />
+
+</vector>

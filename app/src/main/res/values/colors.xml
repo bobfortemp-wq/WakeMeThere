@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Onboarding Architecture Theme Colors -->
+    <color name="bg_dark_charcoal">#0F131D</color>
+    <color name="card_bg_dark">#161B26</color>
+    <color name="card_stroke_dark">#252D3D</color>
+    <color name="icon_bg_dark">#1C2230</color>
+    <color name="sand_accent">#CBA483</color>
+    <color name="sand_accent_dark">#A68061</color>
+    <color name="sand_accent_alpha15">#26CBA483</color>
+    <color name="sand_accent_alpha30">#4DCBA483</color>
+    <color name="text_primary_white">#FFFFFF</color>
+    <color name="text_secondary_muted">#8C9BB0</color>
+    <color name="text_tertiary_dark">#5E6D82</color>
+    <color name="dot_inactive">#2B3448</color>
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
@@ -19,7 +20,7 @@ class OnboardingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,30 +34,64 @@ class OnboardingFragment : Fragment() {
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { _, _ -> }.attach()
 
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                val isLastPage = position == adapter.itemCount - 1
-                binding.btnNext.text = if (isLastPage) {
-                    getString(R.string.get_started)
-                } else {
-                    getString(R.string.next)
+        binding.viewPager.registerOnPageChangeCallback(
+            object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    updateUiForPage(position)
                 }
-                binding.btnSkip.visibility = if (isLastPage) View.INVISIBLE else View.VISIBLE
-            }
-        })
+            },
+        )
 
-        binding.btnNext.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             val currentItem = binding.viewPager.currentItem
-            if (currentItem < adapter.itemCount - 1) {
-                binding.viewPager.currentItem = currentItem + 1
-            } else {
-                navigateToHome()
+            if (currentItem > 0) {
+                binding.viewPager.currentItem = currentItem - 1
             }
         }
 
         binding.btnSkip.setOnClickListener {
             navigateToHome()
+        }
+
+        binding.btnMainAction.setOnClickListener {
+            val currentItem = binding.viewPager.currentItem
+            val currentFragment = childFragmentManager.findFragmentByTag("f$currentItem") as? PermissionSlideFragment
+            currentFragment?.requestSlidePermission()
+
+            if (currentItem < (adapter.itemCount - 1)) {
+                binding.viewPager.currentItem = currentItem + 1
+            } else {
+                navigateToHome()
+            }
+        }
+    }
+
+    private fun updateUiForPage(position: Int) {
+        when (position) {
+            0 -> {
+                binding.layoutLogo.isVisible = true
+                binding.btnBack.isVisible = false
+                binding.tvTopChip.isVisible = false
+                binding.btnSkip.isVisible = true
+                binding.btnMainAction.text = getString(R.string.btn_slide1)
+            }
+            1 -> {
+                binding.layoutLogo.isVisible = false
+                binding.btnBack.isVisible = true
+                binding.tvTopChip.isVisible = true
+                binding.tvTopChip.text = getString(R.string.top_chip_slide2)
+                binding.btnSkip.isVisible = false
+                binding.btnMainAction.text = getString(R.string.btn_slide2)
+            }
+            2 -> {
+                binding.layoutLogo.isVisible = false
+                binding.btnBack.isVisible = true
+                binding.tvTopChip.isVisible = true
+                binding.tvTopChip.text = getString(R.string.top_chip_slide3)
+                binding.btnSkip.isVisible = false
+                binding.btnMainAction.text = getString(R.string.btn_slide3)
+            }
         }
     }
 
