@@ -1,8 +1,6 @@
-package com.bob.wakemethere.ui.onboarding
+package com.bob.wakemethere.ui.fragment
 
 import android.Manifest
-import android.content.Context
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,16 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.bob.wakemethere.R
+import com.bob.wakemethere.data.model.PermissionType
 import com.bob.wakemethere.databinding.FragmentPermissionSlideBinding
+import com.bob.wakemethere.ui.viewmodel.PermissionSlideViewModel
+import kotlinx.coroutines.launch
 
 class PermissionSlideFragment : Fragment() {
 
     private var _binding: FragmentPermissionSlideBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: PermissionSlideViewModel by viewModels()
 
     private var permissionType: PermissionType = PermissionType.FINE_LOCATION
 
@@ -33,7 +39,7 @@ class PermissionSlideFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Location permission denied", Toast.LENGTH_SHORT).show()
         }
-        updateUiState()
+        viewModel.checkPermissionStatus(requireContext())
     }
 
     private val backgroundLocationLauncher = registerForActivityResult(
@@ -44,7 +50,7 @@ class PermissionSlideFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Background location permission denied", Toast.LENGTH_SHORT).show()
         }
-        updateUiState()
+        viewModel.checkPermissionStatus(requireContext())
     }
 
     private val notificationLauncher = registerForActivityResult(
@@ -55,13 +61,14 @@ class PermissionSlideFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Notification permission denied", Toast.LENGTH_SHORT).show()
         }
-        updateUiState()
+        viewModel.checkPermissionStatus(requireContext())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val typeOrdinal = arguments?.getInt(ARG_PERMISSION_TYPE, 0) ?: 0
         permissionType = PermissionType.entries.getOrElse(typeOrdinal) { PermissionType.FINE_LOCATION }
+        viewModel.initPermissionType(permissionType)
     }
 
     override fun onCreateView(
@@ -83,11 +90,25 @@ class PermissionSlideFragment : Fragment() {
         binding.switchCard1.setOnClickListener {
             requestSlidePermission()
         }
+
+        observeViewModel()
     }
 
     override fun onResume() {
         super.onResume()
-        updateUiState()
+        viewModel.checkPermissionStatus(requireContext())
+    }
+
+    private fun observeViewModel() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { uiState ->
+                    if (binding.switchCard1.isVisible) {
+                        binding.switchCard1.isChecked = uiState.isGranted
+                    }
+                }
+            }
+        }
     }
 
     private fun setupSlideContent() {
@@ -154,7 +175,7 @@ class PermissionSlideFragment : Fragment() {
     }
 
     fun requestSlidePermission() {
-        val context = requireContext()
+        if (context == null) return
         when (permissionType) {
             PermissionType.FINE_LOCATION -> {
                 fineLocationLauncher.launch(
@@ -166,21 +187,7 @@ class PermissionSlideFragment : Fragment() {
             }
             PermissionType.BACKGROUND_LOCATION -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    if (isPermissionGranted(context, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                        backgroundLocationLauncher.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                    } else {
-                        Toast.makeText(
-                            context,
-                            "Please grant foreground location permission first.",
-                            Toast.LENGTH_LONG,
-                        ).show()
-                        fineLocationLauncher.launch(
-                            arrayOf(
-                                Manifest.permission.ACCESS_FINE_LOCATION,
-                                Manifest.permission.ACCESS_COARSE_LOCATION,
-                            ),
-                        )
-                    }
+                    backgroundLocationLauncher.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                 }
             }
             PermissionType.POST_NOTIFICATIONS -> {
@@ -189,42 +196,6 @@ class PermissionSlideFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun updateUiState() {
-        val context = context ?: return
-        val isGranted = isCurrentPermissionGranted(context)
-
-        if (binding.switchCard1.isVisible) {
-            binding.switchCard1.isChecked = isGranted
-        }
-    }
-
-    private fun isCurrentPermissionGranted(context: Context): Boolean {
-        return when (permissionType) {
-            PermissionType.FINE_LOCATION -> {
-                isPermissionGranted(context, Manifest.permission.ACCESS_FINE_LOCATION) ||
-                        isPermissionGranted(context, Manifest.permission.ACCESS_COARSE_LOCATION)
-            }
-            PermissionType.BACKGROUND_LOCATION -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    isPermissionGranted(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                } else {
-                    true
-                }
-            }
-            PermissionType.POST_NOTIFICATIONS -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    isPermissionGranted(context, Manifest.permission.POST_NOTIFICATIONS)
-                } else {
-                    true
-                }
-            }
-        }
-    }
-
-    private fun isPermissionGranted(context: Context, permission: String): Boolean {
-        return ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onDestroyView() {

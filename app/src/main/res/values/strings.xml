@@ -47,7 +47,59 @@
 
     <string name="btn_slide3">Finish &amp; Guard First Stop →</string>
 
-    <!-- Home Fragment -->
+    <!-- Home Screen Strings -->
+    <string name="home_top_sub">HOME</string>
+    <string name="home_gps_ready_chip">• GPS READY • ON-DEVICE</string>
+    <string name="home_standby_ready">• STANDBY • READY</string>
+    <string name="home_gps_accuracy">GPS ±4M • &lt;1.5%/HR</string>
+    <string name="home_map_overlay_tag">YOU (SUBWAY CAR #4)</string>
+    <string name="home_zone_radius">ZONE RADIUS: 450M</string>
+    <string name="home_search_placeholder">Where are you headed? (Station, Stop)</string>
+    <string name="home_preset_grand_central">Grand Central</string>
+    <string name="home_preset_canary_wharf">Canary Wharf</string>
+    <string name="home_preset_metro_line">Metro Line</string>
+
+    <string name="home_commute_tag">NEXT GUARDED COMMUTE</string>
+    <string name="home_armed_ready">• ARMED &amp; READY</string>
+    <string name="home_commute_title">Grand Central Terminal</string>
+    <string name="home_commute_sub">Platform 4 • Southbound Express</string>
+    <string name="home_stat_distance_label">DISTANCE</string>
+    <string name="home_stat_distance_val">3.8 km</string>
+    <string name="home_stat_eta_label">EST. ARRIVAL</string>
+    <string name="home_stat_eta_val">~11 min</string>
+    <string name="home_stat_trigger_label">WAKE TRIGGER</string>
+    <string name="home_stat_trigger_val">450 m</string>
+    <string name="home_speed_banner">Auto-expands radius past 50 km/h for high-speed transit</string>
+    <string name="home_btn_arm_wake_zone">Arm Wake Zone</string>
+    <string name="home_toggle_silent_nap">Silent Nap</string>
+    <string name="home_toggle_bypass_dnd">BYPASS DND</string>
+    <string name="home_toggle_test_pulse">Test Pulse</string>
+    <string name="home_toggle_chime_haptic">CHIME &amp; HAPTIC</string>
+
+    <string name="home_passage_tasks_tag">PASSAGE TASKS • WAYPOINTS</string>
+    <string name="home_add_task">+ ADD TASK</string>
+    <string name="home_task_laundry_title">Drop laundry at 34th St</string>
+    <string name="home_task_laundry_badge">EN ROUTE</string>
+    <string name="home_task_laundry_sub">Triggers passing 34th St Herald Sq • 200m buffer</string>
+    <string name="home_task_arm_status">✓ ARM WITH SUBWAY GUARD</string>
+    <string name="home_task_time_away">~7 min away</string>
+
+    <string name="home_frequent_passages_tag">FREQUENT PASSAGES</string>
+    <string name="home_manage">MANAGE</string>
+    <string name="home_frequent_1_title">Downtown Express</string>
+    <string name="home_frequent_1_sub">King St Station • 300m Zone</string>
+    <string name="home_frequent_2_title">Northbound Rail</string>
+    <string name="home_frequent_2_sub">Terminal B • 600m High Speed</string>
+
+    <string name="home_status_active">ACTIVE</string>
+    <string name="home_status_standby">STANDBY</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_wake_zone">Wake Zone</string>
+    <string name="nav_waypoints">Waypoints</string>
+    <string name="nav_telemetry">Telemetry</string>
+    <string name="nav_settings">Settings</string>
+
     <string name="welcome_title">Welcome to WakeMeThere!</string>
     <string name="welcome_subtitle">Onboarding complete. Geofence transit guard active.</string>
 </resources>

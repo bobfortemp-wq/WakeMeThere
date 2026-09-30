@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_dark_charcoal"
     android:padding="20dp"
-    tools:context=".ui.onboarding.OnboardingFragment">
+    tools:context=".ui.fragment.OnboardingFragment">
 
     <!-- Top Navigation Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -112,19 +112,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
-    <!-- Page Indicator Dots -->
+    <!-- Page Indicator Dots with Elastic Animation -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="18dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/btnMainAction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:tabBackground="@drawable/tab_selector"
+        app:tabBackground="@drawable/tab_indicator_default"
         app:tabGravity="center"
-        app:tabIndicatorHeight="0dp"
+        app:tabIndicator="@drawable/bg_active_indicator"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@color/sand_accent"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorGravity="center"
+        app:tabIndicatorHeight="6dp"
+        app:tabMinWidth="30dp"
+        app:tabPaddingBottom="0dp"
+        app:tabPaddingEnd="4dp"
+        app:tabPaddingStart="4dp"
+        app:tabPaddingTop="0dp"
         app:tabRippleColor="@null" />
 
     <!-- Desert Sand Primary Action Button -->

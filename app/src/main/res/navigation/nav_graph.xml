@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="com.bob.wakemethere.ui.onboarding.OnboardingFragment"
+        android:name="com.bob.wakemethere.ui.fragment.OnboardingFragment"
         android:label="Onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.bob.wakemethere.ui.home.HomeFragment"
+        android:name="com.bob.wakemethere.ui.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 

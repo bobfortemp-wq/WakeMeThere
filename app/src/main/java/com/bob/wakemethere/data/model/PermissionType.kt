@@ -1,4 +1,4 @@
-package com.bob.wakemethere.ui.onboarding
+package com.bob.wakemethere.data.model
 
 enum class PermissionType {
     FINE_LOCATION,
